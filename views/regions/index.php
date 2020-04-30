@@ -4,18 +4,18 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\PersonSearch */
+/* @var $searchModel app\models\RegionsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'People';
+$this->title = 'Regions';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="person-index">
+<div class="regions-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Person', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Regions', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -26,12 +26,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            
-            'firstname',
-            'lastname',
-            'mobile',
-            'address',
-            //'age',
+           // 'region_id',
+            'region_name',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

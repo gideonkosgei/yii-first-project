@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Person;
-use app\models\PersonSearch;
+use app\models\Regions;
+use app\models\RegionsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * PersonController implements the CRUD actions for Person model.
+ * RegionsController implements the CRUD actions for Regions model.
  */
-class PersonController extends Controller
+class RegionsController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +30,12 @@ class PersonController extends Controller
     }
 
     /**
-     * Lists all Person models.
+     * Lists all Regions models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new PersonSearch();
+        $searchModel = new RegionsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class PersonController extends Controller
     }
 
     /**
-     * Displays a single Person model.
+     * Displays a single Regions model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,16 +58,16 @@ class PersonController extends Controller
     }
 
     /**
-     * Creates a new Person model.
+     * Creates a new Regions model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Person();
+        $model = new Regions();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->region_id]);
         }
 
         return $this->render('create', [
@@ -76,7 +76,7 @@ class PersonController extends Controller
     }
 
     /**
-     * Updates an existing Person model.
+     * Updates an existing Regions model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -87,7 +87,7 @@ class PersonController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->region_id]);
         }
 
         return $this->render('update', [
@@ -96,7 +96,7 @@ class PersonController extends Controller
     }
 
     /**
-     * Deletes an existing Person model.
+     * Deletes an existing Regions model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,15 +110,15 @@ class PersonController extends Controller
     }
 
     /**
-     * Finds the Person model based on its primary key value.
+     * Finds the Regions model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Person the loaded model
+     * @return Regions the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Person::findOne($id)) !== null) {
+        if (($model = Regions::findOne($id)) !== null) {
             return $model;
         }
 

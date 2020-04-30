@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Person;
+use app\models\Regions;
 
 /**
- * PersonSearch represents the model behind the search form of `app\models\Person`.
+ * RegionsSearch represents the model behind the search form of `app\models\Regions`.
  */
-class PersonSearch extends Person
+class RegionsSearch extends Regions
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class PersonSearch extends Person
     public function rules()
     {
         return [
-            [['id', 'age'], 'integer'],
-            [['firstname', 'lastname', 'mobile', 'address'], 'safe'],
+            [['region_id'], 'integer'],
+            [['region_name'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class PersonSearch extends Person
      */
     public function search($params)
     {
-        $query = Person::find();
+        $query = Regions::find();
 
         // add conditions that should always apply here
 
@@ -58,14 +58,10 @@ class PersonSearch extends Person
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
-            'age' => $this->age,
+            'region_id' => $this->region_id,
         ]);
 
-        $query->andFilterWhere(['like', 'firstname', $this->firstname])
-            ->andFilterWhere(['like', 'lastname', $this->lastname])
-            ->andFilterWhere(['like', 'mobile', $this->mobile])
-            ->andFilterWhere(['like', 'address', $this->address]);
+        $query->andFilterWhere(['like', 'region_name', $this->region_name]);
 
         return $dataProvider;
     }

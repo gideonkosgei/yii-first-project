@@ -4,28 +4,20 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\PersonSearch */
+/* @var $model app\models\RegionsSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="person-search">
+<div class="regions-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?= $form->field($model, 'region_id') ?>
 
-    <?= $form->field($model, 'firstname') ?>
-
-    <?= $form->field($model, 'lastname') ?>
-
-    <?= $form->field($model, 'mobile') ?>
-
-    <?= $form->field($model, 'address') ?>
-
-    <?php // echo $form->field($model, 'age') ?>
+    <?= $form->field($model, 'region_name') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
